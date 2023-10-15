@@ -84,8 +84,8 @@
                             <i class=pe-7s-box1></i>
                         </div>
                         <div class=header-title>
-                            <h1>Oven List</h1>
-                            <small>List of all oven</small>
+                            <h1>Air Purifier List</h1>
+                            <small>List of all Air Purifier</small>
                             <ol class=breadcrumb>
                                 <li class=active><a href=dashboard.php><i class=pe-7s-home></i> Home</a></li>
                             </ol>
@@ -98,7 +98,7 @@
                                 <div class="panel panel-danger">
                                     <div class="panel-heading">
                                         <div class="panel-title">
-                                            <h4>Oven List</h4> <br>
+                                            <h4>Air Purifier List</h4> <br>
                                             <h5>Click on item name to view details</h5>
                                         </div>
                                     </div>
@@ -107,8 +107,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>Oven Name</th>
-                                                    <th>Status</th>
+                                                    <th>Name</th>
                                                     <th>Connection</th>
                                                 </tr>
                                             </thead>
@@ -218,7 +217,7 @@
                     ],
                     aaSorting: [],
                     ajax: {
-                        url: 'server/api.php?mode=ovenlist',
+                        url: 'server/api.php?mode=airlist',
                         dataSrc: 'data',
                     },
                     columns: [
@@ -231,19 +230,13 @@
                         { 
                             data: null, 
                             render: function ( data, type, row, meta ) {
-                                return '<center><a href="ovenview.php?id=' + data.id + '"><h4><b>' + data.oven_name + '</b></h4></a><center>';
+                                return '<center><a href="ovenview.php?id=' + data.id + '"><h4><b>' + data.air_name + '</b></h4></a><center>';
                             } 
                         },
                         { 
                             data: null, 
                             render: function ( data, type, row, meta ) {
-                                return data.oven_status.toUpperCase();
-                            } 
-                        },
-                        { 
-                            data: null, 
-                            render: function ( data, type, row, meta ) {
-                                return data.oven_connected.toUpperCase();
+                                return data.air_connected.toUpperCase();
                             } 
                         },
                     ]

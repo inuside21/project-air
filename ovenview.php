@@ -190,40 +190,20 @@
             <div id=page-wrapper>
                 <div class=content>
 
-                <br>
+                    <br>
 
                     <div class="row">
-                        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                             <a>
                                 <div class="statistic-box statistic-filled-3">
-                                    <h2><span class="count-number1" id="count-numberTemp">---</span><span class="slight"></span></h2>
-                                    <div class="small">Temperature</div>
+                                    <h2><span class="count-number1" id="count-numberAir">---</span><span class="slight"></span></h2>
+                                    <div class="small">Air Quality</div>
                                     <i class="ti-check-box statistic_icon"></i>
                                 </div>
                             </a>
                         </div>
 
-                        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-                            <a>
-                                <div class="statistic-box statistic-filled-3">
-                                    <h2><span class="count-number1" id="count-numberCurrent">---</span><span class="slight"></span></h2>
-                                    <div class="small">Current</div>
-                                    <i class="ti-check-box statistic_icon"></i>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-                            <a>
-                                <div class="statistic-box statistic-filled-3">
-                                    <h2><span class="count-number1" id="count-numberKwh">---</span><span class="slight"></span></h2>
-                                    <div class="small">KWH</div>
-                                    <i class="ti-check-box statistic_icon"></i>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                             <a>
                                 <div class="statistic-box statistic-filled-3">
                                     <h2><span class="count-number1" id="count-numberConnection">---</span><span class="slight"></span></h2>
@@ -235,41 +215,21 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3" id="cMenuOperationBtn">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="cMenuFanBtn">
                             <a>
                                 <div class="statistic-box statistic-filled-3">
-                                    <h2><span class="count-number1" id="count-numberOperation">---</span><span class="slight"></span></h2>
-                                    <div class="small">Operation</div>
+                                    <h2><span class="count-number1" id="count-numberFan">---</span><span class="slight"></span></h2>
+                                    <div class="small">Fan Level</div>
                                     <i class="ti-check-box statistic_icon"></i>
                                 </div>
                             </a>
                         </div>
 
-                        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3" id="cMenuTimerBtn">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="cMenuSprayBtn">
                             <a>
                                 <div class="statistic-box statistic-filled-3">
-                                    <h2><span class="count-number1" id="count-numberTimer">---</span><span class="slight"></span></h2>
-                                    <div class="small">Timer</div>
-                                    <i class="ti-check-box statistic_icon"></i>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3" id="cMenuStockBtn">
-                            <a>
-                                <div class="statistic-box statistic-filled-3">
-                                    <h2><span class="count-number1" id="count-numberStock">---</span><span class="slight"></span></h2>
-                                    <div class="small">Stock</div>
-                                    <i class="ti-check-box statistic_icon"></i>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3" id="cMenuLockBtn">
-                            <a>
-                                <div class="statistic-box statistic-filled-3">
-                                    <h2><span class="count-number1" id="count-numberLock">---</span><span class="slight"></span></h2>
-                                    <div class="small">Lock</div>
+                                    <h2><span class="count-number1" id="count-numberSpray">---</span><span class="slight"></span></h2>
+                                    <div class="small">Spray Interval</div>
                                     <i class="ti-check-box statistic_icon"></i>
                                 </div>
                             </a>
@@ -302,8 +262,8 @@
                                     <div class="panel panel-danger">
                                         <div class="panel-heading">
                                             <div class="panel-title">
-                                                <h4>Oven Information</h4> <br>
-                                                <h5>General information of the oven</h5>
+                                                <h4>Air Purifier Information</h4> <br>
+                                                <h5>General information of the Air Purifier</h5>
                                             </div>
                                         </div>
                                         <div class="panel-body">
@@ -326,7 +286,7 @@
                                                     </div>
                                                     
                                                     <div class="form-group row">
-                                                        <label for="example-text-input" class="col-sm-2 col-form-label">Oven Name</label>
+                                                        <label for="example-text-input" class="col-sm-2 col-form-label">Name</label>
                                                         <div class="col-sm-10">
                                                             <input class="form-control" type="text" id="oName" name="oName">
                                                         </div>
@@ -349,7 +309,7 @@
                                     <div class="panel-heading">
                                         <div class="panel-title">
                                             <h4>Logs</h4> <br>
-                                            <h5>Logging of this oven</h5>
+                                            <h5>Logging of this Air Purifier</h5>
                                         </div>
                                     </div>
                                     <div class="panel-body">
@@ -357,9 +317,8 @@
                                             <thead>
                                                 <tr>
                                                     <th>Date</th>
-                                                    <th>Temp</th>
-                                                    <th>Current</th>
-                                                    <th>KWH</th>
+                                                    <th>Air Quality %</th>
+                                                    <th>Air Quality</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -372,21 +331,21 @@
                         </div>
                     </div>
 
-                    <div class="modal fade modal-danger in" id="modal-timer" tabindex="-1" role="dialog">
+                    <div class="modal fade modal-danger in" id="modal-fan" tabindex="-1" role="dialog">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                    <h1 class="modal-title"><b style="font-size:80px;"><span id="tTimerMain">00:00:00</span></b><br>HH:MM:SS</h1>
+                                    <h1 class="modal-title"><b style="font-size:60px;">Fan Level: <br><span id="tFanText">---</span></b></h1>
                                 </div>
                                 <div class="modal-body">
                                     <p>
                                     <form id="fInfoTimer" enctype="multipart/form-data">
                                         <div class="text-center">
-                                            <button type="button" class="btn btn-success" id="tTimerHourUpBtn">+1 Hour</button>
-                                            <button type="button" class="btn btn-success" id="tTimerHourDownBtn">-1 Hour</button>
-                                            <button type="button" class="btn btn-success" id="tTimerMinUpBtn">+1 Minute</button>
-                                            <button type="button" class="btn btn-success" id="tTimerMinDownBtn">-1 Minute</button>
+                                            <button type="button" class="btn btn-success" id="tFanOffBtn">OFF</button> 
+                                            <button type="button" class="btn btn-success" id="tFanLowBtn">LOW</button> 
+                                            <button type="button" class="btn btn-success" id="tFanMedBtn">MEDIUM</button> 
+                                            <button type="button" class="btn btn-success" id="tFanHighBtn">HIGH</button> 
                                         </div>
                                     </form>
 
@@ -399,28 +358,29 @@
                         </div><!-- /.modal-dialog -->
                     </div>
 
-                    <div class="modal fade modal-danger in" id="modal-stock" tabindex="-1" role="dialog">
+                    <div class="modal fade modal-danger in" id="modal-spray" tabindex="-1" role="dialog">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                    <h1 class="modal-title"><b style="font-size:80px;"><span id="tStockMain">0</span></b></h1>
+                                    <h1 class="modal-title"><b style="font-size:60px;">Spray Interval: <br><span id="tSprayText">---</span></b></h1>
                                 </div>
                                 <div class="modal-body">
                                     <p>
-                                    <form id="fInfoStock" enctype="multipart/form-data">
-                                        <div class="form-group row">
-                                            <label for="example-text-input" class="col-sm-2 col-form-label">Stock</label>
-                                            <div class="col-sm-10">
-                                                <input class="form-control" type="text" id="tStock" name="tStock">
-                                            </div>
+                                    <form id="fInfoTimer" enctype="multipart/form-data">
+                                        <div class="text-center">
+                                            <button type="button" class="btn btn-success" id="tSpray0">OFF</button> 
+                                            <button type="button" class="btn btn-success" id="tSpray1">1 Minute</button> 
+                                            <button type="button" class="btn btn-success" id="tSpray2">3 Minutes</button> <br><br>
+                                            <button type="button" class="btn btn-success" id="tSpray3">5 Minutes</button> 
+                                            <button type="button" class="btn btn-success" id="tSpray4">10 Minutes</button>
+                                            <button type="button" class="btn btn-success" id="tSpray5">15 Minutes</button> 
                                         </div>
                                     </form>
 
                                     </p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-success" id="fSubmitStock">Save</button>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                 </div>
                             </div><!-- /.modal-content -->
@@ -460,7 +420,7 @@
             const params = new URLSearchParams(window.location.search);
             const getId = params.get('id');
             
-            var getReqDataOven;
+            var getReqDataAir;
             var table1;
 
 
@@ -473,7 +433,7 @@
             // Loop
             // ===========================
             setInterval(function() {
-                LoadDataOven();
+                LoadDataAir();
                 table1.ajax.reload();
             }, 200);
 
@@ -525,7 +485,7 @@
                             type: "POST",
                             contentType: false,
                             processData: false,
-                            url: "server/api.php?mode=ovenedit",
+                            url: "server/api.php?mode=airedit",
                             data: JSON.stringify(formData),
                             beforeSend: function() {
                                 // button
@@ -586,9 +546,9 @@
                             type: "POST",
                             contentType: false,
                             processData: false,
-                            url: "server/api.php?mode=ovendelete",
+                            url: "server/api.php?mode=airdelete",
                             data: JSON.stringify({
-                                dOven: getReqDataOven,
+                                dAir: getReqDataAir,
                             }),
                             beforeSend: function() {
                                 // button
@@ -628,316 +588,192 @@
                 );
             });
 
-            // Operation
-            $('#cMenuOperationBtn').click(function(e) {
+            // Fan
+            $('#cMenuFanBtn').click(function(e) {
+                $('#modal-fan').modal('show');
+            });
+
+            $('#tFanOffBtn').click(function(e) {
                 $.ajax({
+                    cache: false,
                     type: "POST",
-                    contentType: false,
-                    processData: false,
-                    url: "server/api.php?mode=ovenoperationedit",
+                    url: "server/api.php?mode=airfanedit",
                     data: JSON.stringify({
-                        dOven: getReqDataOven,
+                        airid: getReqDataAir.id,
+                        airfanlvl: "0",
                     }),
                     beforeSend: function() {
-                        // button
-                        $('#fButton').toggle();
                     },
                     success: function(data) {
-                        // button
-                        $('#fButton').toggle();
-                        
-                        // result
-                        console.log(data);
-                        const result = JSON.parse(data);
-                        
-                        
-                        // check
-                        if (result.status == "ok")
-                        {
-                            
-                        }
-                        else
-                        {
-                            
-                        }
                     },
                     error: function(data) {
-                        
                     }
                 });
             });
 
-            // Timer
-            $('#cMenuTimerBtn').click(function(e) {
-                $('#modal-timer').modal('show');
-            });
-
-            $('#tTimerHourUpBtn').click(function(e) {
+            $('#tFanLowBtn').click(function(e) {
                 $.ajax({
+                    cache: false,
                     type: "POST",
-                    contentType: false,
-                    processData: false,
-                    url: "server/api.php?mode=oventimerhourupedit",
+                    url: "server/api.php?mode=airfanedit",
                     data: JSON.stringify({
-                        dOven: getReqDataOven,
+                        airid: getReqDataAir.id,
+                        airfanlvl: "1",
                     }),
                     beforeSend: function() {
-                        // button
-                        $('#fButton').toggle();
                     },
                     success: function(data) {
-                        // button
-                        $('#fButton').toggle();
-                        
-                        // result
-                        const result = JSON.parse(data);
-                        
-                        // check
-                        if (result.status == "ok")
-                        {
-                            
-                        }
-                        else
-                        {
-                            
-                        }
                     },
                     error: function(data) {
-                        
                     }
                 });
             });
 
-            $('#tTimerHourDownBtn').click(function(e) {
+            $('#tFanMedBtn').click(function(e) {
                 $.ajax({
+                    cache: false,
                     type: "POST",
-                    contentType: false,
-                    processData: false,
-                    url: "server/api.php?mode=oventimerhourdownedit",
+                    url: "server/api.php?mode=airfanedit",
                     data: JSON.stringify({
-                        dOven: getReqDataOven,
+                        airid: getReqDataAir.id,
+                        airfanlvl: "2",
                     }),
                     beforeSend: function() {
-                        // button
-                        $('#fButton').toggle();
                     },
                     success: function(data) {
-                        // button
-                        $('#fButton').toggle();
-                        
-                        // result
-                        const result = JSON.parse(data);
-                        
-                        // check
-                        if (result.status == "ok")
-                        {
-                            
-                        }
-                        else
-                        {
-                            
-                        }
                     },
                     error: function(data) {
-                        
                     }
                 });
             });
 
-            $('#tTimerMinUpBtn').click(function(e) {
+            $('#tFanHighBtn').click(function(e) {
                 $.ajax({
+                    cache: false,
                     type: "POST",
-                    contentType: false,
-                    processData: false,
-                    url: "server/api.php?mode=oventimerminupedit",
+                    url: "server/api.php?mode=airfanedit",
                     data: JSON.stringify({
-                        dOven: getReqDataOven,
+                        airid: getReqDataAir.id,
+                        airfanlvl: "3",
                     }),
                     beforeSend: function() {
-                        // button
-                        $('#fButton').toggle();
                     },
                     success: function(data) {
-                        // button
-                        $('#fButton').toggle();
-                        
-                        // result
-                        const result = JSON.parse(data);
-                        
-                        // check
-                        if (result.status == "ok")
-                        {
-                            
-                        }
-                        else
-                        {
-                            
-                        }
                     },
                     error: function(data) {
-                        
                     }
                 });
             });
 
-            $('#tTimerMinDownBtn').click(function(e) {
+            // Spray
+            $('#cMenuSprayBtn').click(function(e) {
+                $('#modal-spray').modal('show');
+            });
+
+            $('#tSpray0').click(function(e) {
                 $.ajax({
+                    cache: false,
                     type: "POST",
-                    contentType: false,
-                    processData: false,
-                    url: "server/api.php?mode=oventimermindownedit",
+                    url: "server/api.php?mode=airsprayedit",
                     data: JSON.stringify({
-                        dOven: getReqDataOven,
+                        airid: getReqDataAir.id,
+                        airsprayint: "0",
                     }),
                     beforeSend: function() {
-                        // button
-                        $('#fButton').toggle();
                     },
                     success: function(data) {
-                        // button
-                        $('#fButton').toggle();
-                        
-                        // result
-                        const result = JSON.parse(data);
-                        
-                        // check
-                        if (result.status == "ok")
-                        {
-                            
-                        }
-                        else
-                        {
-                            
-                        }
                     },
                     error: function(data) {
-                        
                     }
                 });
             });
 
-            // Stock
-            $('#cMenuStockBtn').click(function(e) {
-                $('#modal-stock').modal('show');
-            });
-
-            $('#fSubmitStock').click(function(e) {
-                // check
-                swal(
-                    {
-                        title: "Are you sure?",
-                        text: "Pressing the Proceed button will save the data.",
-                        type: "warning",
-                        showCancelButton: true,
-                        confirmButtonColor: "#E5343D",
-                        confirmButtonText: "Proceed",
-                        closeOnConfirm: false
-                    },
-                    function() {
-                        /*
-                        // image
-                        var file = $('#rImage')[0].files[0];
-                        var reader = new FileReader();
-                        reader.onload = function() {
-                            var base64 = reader.result.replace(/^data:image\/(png|jpeg|jpg);base64,/, '');
-                            $('#rWe').val(base64);
-                        };
-                        reader.readAsDataURL(file);
-                        */
-
-                        // form
-                        var formData = {};
-                        $.each($('#fInfoStock').serializeArray(), function() {
-                            var key = this.name;
-                            var value = this.value;
-                            if (formData[key] !== undefined) {
-                                if (!Array.isArray(formData[key])) {
-                                    formData[key] = [formData[key]];
-                                }
-                                formData[key].push(value);
-                            } else {
-                                formData[key] = value;
-                            }
-                        });
-
-                        // request
-                        $.ajax({
-                            type: "POST",
-                            contentType: false,
-                            processData: false,
-                            url: "server/api.php?mode=ovenstockedit&oid=" + getId,
-                            data: JSON.stringify(formData),
-                            beforeSend: function() {
-                                // button
-                                $('#fButton').toggle();
-                            },
-                            success: function(data) {
-                                // button
-                                $('#fButton').toggle();
-
-                                console.log(data)
-                                
-                                // result
-                                const result = JSON.parse(data);
-                               
-                                // check
-                                if (result.status == "ok")
-                                {
-                                    //message
-                                    swal(result.title, result.message, "success");
-                                }
-                                else
-                                {
-                                    // message
-                                    swal(result.title, result.message, "error");
-                                }
-                            },
-                            error: function(data) {
-                                // button
-                                $('#fButton').toggle();
-
-                                // message
-                                swal("Error!", "Something went wrong. Please try again.", "error");
-                            }
-                        });
-                    }
-                );
-            });
-
-            // Lock
-            $('#cMenuLockBtn').click(function(e) {
+            $('#tSpray1').click(function(e) {
                 $.ajax({
+                    cache: false,
                     type: "POST",
-                    contentType: false,
-                    processData: false,
-                    url: "server/api.php?mode=ovenlockedit",
+                    url: "server/api.php?mode=airsprayedit",
                     data: JSON.stringify({
-                        dOven: getReqDataOven,
+                        airid: getReqDataAir.id,
+                        airsprayint: "1",
                     }),
                     beforeSend: function() {
-                        // button
-                        $('#fButton').toggle();
                     },
                     success: function(data) {
-                        // button
-                        $('#fButton').toggle();
-                        
-                        // result
-                        const result = JSON.parse(data);
-                        console.log(result.message);
-                        
-                        // check
-                        if (result.status == "ok")
-                        {
-                            
-                        }
-                        else
-                        {
-                            
-                        }
                     },
                     error: function(data) {
-                        
+                    }
+                });
+            });
+
+            $('#tSpray2').click(function(e) {
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "server/api.php?mode=airsprayedit",
+                    data: JSON.stringify({
+                        airid: getReqDataAir.id,
+                        airsprayint: "2",
+                    }),
+                    beforeSend: function() {
+                    },
+                    success: function(data) {
+                    },
+                    error: function(data) {
+                    }
+                });
+            });
+
+            $('#tSpray3').click(function(e) {
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "server/api.php?mode=airsprayedit",
+                    data: JSON.stringify({
+                        airid: getReqDataAir.id,
+                        airsprayint: "3",
+                    }),
+                    beforeSend: function() {
+                    },
+                    success: function(data) {
+                    },
+                    error: function(data) {
+                    }
+                });
+            });
+
+            $('#tSpray4').click(function(e) {
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "server/api.php?mode=airsprayedit",
+                    data: JSON.stringify({
+                        airid: getReqDataAir.id,
+                        airsprayint: "4",
+                    }),
+                    beforeSend: function() {
+                    },
+                    success: function(data) {
+                    },
+                    error: function(data) {
+                    }
+                });
+            });
+
+            $('#tSpray5').click(function(e) {
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "server/api.php?mode=airsprayedit",
+                    data: JSON.stringify({
+                        airid: getReqDataAir.id,
+                        airsprayint: "5",
+                    }),
+                    beforeSend: function() {
+                    },
+                    success: function(data) {
+                    },
+                    error: function(data) {
                     }
                 });
             });
@@ -948,6 +784,7 @@
             // Load User
             function LoadUser() {
                 $.ajax({
+                    cache: false,
                     type: "POST",
                     url: "server/api.php?mode=userverifytoken",
                     data: JSON.stringify({ "utoken": localStorage.getItem("tokenId") }),
@@ -991,11 +828,12 @@
                 window.location.href = "login.php";
             });
 
-            function LoadDataOven()
+            function LoadDataAir()
             {
                 $.ajax({
+                    cache: false,
                     type: "POST",
-                    url: "server/api.php?mode=ovenview",
+                    url: "server/api.php?mode=airview",
                     data: JSON.stringify({
                         "reqid": getId,
                     }),
@@ -1006,33 +844,25 @@
                         // check
                         if (result.status == "ok")
                         {
-                            getReqDataOven = result.data;
+                            getReqDataAir = result.data;
                             
                             // detail
-                            $('#dName').text(getReqDataOven.oven_name);
+                            $('#dName').text(getReqDataAir.air_name);
                             //$('#preview-image').attr('src', 'files/images/' + getReqDataProject.proj_img);
 
                             // form
-                            $('#rId').val(getReqDataOven.id);
+                            $('#rId').val(getReqDataAir.id);
                             //$('#rImageOrig').val(getReqDataOven.proj_img);
-                            $('#oName').val(getReqDataOven.oven_name);
+                            $('#oName').val(getReqDataAir.air_name);
 
                             //
-                            $('#count-numberTemp').text(getReqDataOven.oven_temp + " °C");
-                            $('#count-numberCurrent').text(getReqDataOven.oven_current + " A");
-                            $('#count-numberKwh').text(getReqDataOven.oven_kwh + " KWH");
-                            $('#count-numberConnection').text(getReqDataOven.oven_connected);
+                            $('#count-numberAir').text(getReqDataAir.air_airvaltext);
+                            $('#count-numberConnection').text(getReqDataAir.air_connected);
+                            $('#count-numberFan').text(getReqDataAir.air_fantext);
+                            $('#count-numberSpray').text(getReqDataAir.air_spraytext);
 
-                            $('#count-numberOperation').text(getReqDataOven.oven_status);
-                            $('#count-numberTimer').text(ConvertIntToTimer(getReqDataOven.oven_timer));
-                            $('#count-numberStock').text(getReqDataOven.oven_stock);
-                            $('#count-numberLock').text(getReqDataOven.oven_lock);
-
-                            // timer 
-                            $('#tTimerMain').text(ConvertIntToTimer(getReqDataOven.oven_timermain));
-
-                            // stock
-                            $('#tStockMain').text(getReqDataOven.oven_stock);
+                            $('#tFanText').text(getReqDataAir.air_fantext);
+                            $('#tSprayText').text(getReqDataAir.air_spraytext);
 
                             /*
                             $('#pDept').trigger('change');
@@ -1062,60 +892,30 @@
                     ],
                     aaSorting: [],
                     ajax: {
-                        url: 'server/api.php?mode=ovenloglist&oid=' + getId,
+                        url: 'server/api.php?mode=airloglist&aid=' + getId,
                         dataSrc: 'data',
                     },
                     columns: [
                         { 
                             data: null, 
                             render: function ( data, type, row, meta ) {
-                                return data.oven_date;
+                                return data.air_date;
                             } 
                         },
                         { 
                             data: null, 
                             render: function ( data, type, row, meta ) {
-                                return data.oven_temp + " °C";
+                                return data.air_val + "%";
                             } 
                         },
                         { 
                             data: null, 
                             render: function ( data, type, row, meta ) {
-                                return data.oven_current + " A";
-                            } 
-                        },
-                        { 
-                            data: null, 
-                            render: function ( data, type, row, meta ) {
-                                return data.oven_kwh + " KWH";
+                                return data.air_valtext;
                             } 
                         },
                     ]
                 });
-            }
-
-
-            // Other
-            // ===========================
-            function ConvertIntToTimer(getVal) 
-            {
-                var thisVal = getVal;
-
-                //
-                if (thisVal > 0)
-                {
-                    var hours = Math.floor(thisVal / 3600);
-                    var minutes = Math.floor((thisVal - (hours * 3600)) / 60);
-                    var seconds = Math.floor(thisVal) - (hours * 3600) - (minutes * 60);
-                    var timeString = ('0' + hours).slice(-2) + ':' + ('0' + minutes).slice(-2) + ':' + ('0' + seconds).slice(-2);
-                    return timeString;
-                }
-
-                //
-                else
-                {
-                    return "00:00:00";
-                }
             }
         </script>
 

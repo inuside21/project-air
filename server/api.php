@@ -106,7 +106,7 @@
         $output = 0;
 
         // login
-        $sql="select count(*) as resCount FROM oven_tbl"; 
+        $sql="select count(*) as resCount FROM air_tbl"; 
         $rsgetacc=mysqli_query($connection,$sql);
         while ($rowsgetacc = mysqli_fetch_object($rsgetacc))
         {
@@ -175,7 +175,7 @@
             {
                 if ($rowsgetacc->user_pos == "1")
                 {
-                    $rowsgetacc->user_pos = "Operator";
+                    $rowsgetacc->user_pos = "User";
                 }
 
                 if ($rowsgetacc->user_pos == "0")
@@ -393,9 +393,9 @@
 
 
 
-    // Oven Add
+    // Air Add
     // ----------------------
-    if ($_GET['mode'] == 'ovenadd')
+    if ($_GET['mode'] == 'airadd')
     {
         $resData = JSONGet();
 
@@ -444,9 +444,9 @@
 
         // item
         {
-            $sql="insert into oven_tbl
+            $sql="insert into air_tbl
                     (
-                        oven_name
+                        air_name
                     )
                 values
                     (
@@ -457,12 +457,12 @@
         }
 
         // result
-        JSONSet("ok", "Add Success!", "New oven detail added successfully.");
+        JSONSet("ok", "Add Success!", "New Air Purifier detail added successfully.");
     }
 
-    // Oven Edit
+    // Air Edit
     // ----------------------
-    if ($_GET['mode'] == 'ovenedit')
+    if ($_GET['mode'] == 'airedit')
     {
         $resData = JSONGet();
 
@@ -511,8 +511,8 @@
 
         // item
         { 
-            $sql="  update oven_tbl set
-                        oven_name = '" . $resData->oName . "'
+            $sql="  update air_tbl set
+                        air_name = '" . $resData->oName . "'
                     where
                         id = '" . $resData->rId . "'
             "; 
@@ -520,25 +520,25 @@
         }
 
         // result
-        JSONSet("ok", "Update Success!", "Oven detail has been updated successfully.");
+        JSONSet("ok", "Update Success!", "Air Purifier detail has been updated successfully.");
     }
 
-    // Oven Delete
+    // Air Delete
     // ----------------------
-    if ($_GET['mode'] == 'ovendelete')
+    if ($_GET['mode'] == 'airdelete')
     {
         $resData = JSONGet();
 
-        $sql="delete from oven_tbl where id = '" . $resData->dOven->id . "'"; 
+        $sql="delete from air_tbl where id = '" . $resData->dAir->id . "'"; 
         $rsgetacc=mysqli_query($connection,$sql);
 
         // result
-        JSONSet("ok", "Delete Success!", "Oven detail has been removed successfully.");
+        JSONSet("ok", "Delete Success!", "Air Purifier detail has been removed successfully.");
     }
 
-    // Oven List
+    // Air List
     // ----------------------
-    if ($_GET['mode'] == 'ovenlist')
+    if ($_GET['mode'] == 'airlist')
     {
         $resData = JSONGet();
 
@@ -546,41 +546,23 @@
         $resList = array();  
 
         // login
-        $sql="select * FROM oven_tbl order by id desc"; 
+        $sql="select * FROM air_tbl order by id desc"; 
         $rsgetacc=mysqli_query($connection,$sql);
         while ($rowsgetacc = mysqli_fetch_object($rsgetacc))
         {
             // other
             {
                 //
-                if ($rowsgetacc->oven_status == "0")
-                {
-                    $rowsgetacc->oven_status = "IDLE";
-                }
-
-                //
-                if ($rowsgetacc->oven_status == "1")
-                {
-                    $rowsgetacc->oven_status = "RUNNING";
-                }
-
-                //
-                if ($rowsgetacc->oven_status == "2")
-                {
-                    $rowsgetacc->oven_status = "COMPLETE";
-                }
-
-                //
-                $timeDiff = strtotime($dateResult) - (int)$rowsgetacc->oven_connected;
+                $timeDiff = strtotime($dateResult) - (int)$rowsgetacc->air_connected;
                 if ($timeDiff > 10)
                 {
-                    $rowsgetacc->oven_connected = "OFFLINE";
+                    $rowsgetacc->air_connected = "Disconnected";
                 }
 
                 //
                 if ($timeDiff <= 10)
                 {
-                    $rowsgetacc->oven_connected = "ONLINE";
+                    $rowsgetacc->air_connected = "Connected";
                 }
             }
 
@@ -590,9 +572,9 @@
         JSONSet("ok", "", $sql, $resList);
     }
 
-    // Oven Log List
+    // Air Log List
     // ----------------------
-    if ($_GET['mode'] == 'ovenloglist')
+    if ($_GET['mode'] == 'airloglist')
     {
         $resData = JSONGet();
 
@@ -600,13 +582,26 @@
         $resList = array();  
 
         // login
-        $sql="select * FROM oven_log_tbl where oven_id = '" . $_GET['oid'] . "' order by id desc limit 1000"; 
+        $sql="select * FROM air_log_tbl where air_id = '" . $_GET['aid'] . "' order by id desc limit 1000"; 
         $rsgetacc=mysqli_query($connection,$sql);
         while ($rowsgetacc = mysqli_fetch_object($rsgetacc))
         {
             // other
             {
+                if ((int)$rowsgetacc->air_val >= 0 && (int)$rowsgetacc->air_val <= 5)
+                {
+                    $rowsgetacc->air_valtext = "GOOD";
+                }
 
+                if ((int)$rowsgetacc->air_val >= 6 && (int)$rowsgetacc->air_val <= 50)
+                {
+                    $rowsgetacc->air_valtext = "CLEANING";
+                }
+
+                if ((int)$rowsgetacc->air_val >= 51)
+                {
+                    $rowsgetacc->air_valtext = "BAD";
+                }
             }
 
             $resList[] = $rowsgetacc;
@@ -615,59 +610,89 @@
         JSONSet("ok", "", $sql, $resList);
     }
 
-    // Oven View
+    // Air View
     // ----------------------
-    if ($_GET['mode'] == 'ovenview')
+    if ($_GET['mode'] == 'airview')
     {
         $resData = JSONGet();
 
         // check exist
         {
-            $sql="select * FROM oven_tbl where id = '" . $resData->reqid . "'"; 
+            $sql="select * FROM air_tbl where id = '" . $resData->reqid . "'"; 
             $rsgetacc=mysqli_query($connection,$sql);
             while ($rowsgetacc = mysqli_fetch_object($rsgetacc))
             {
                 // other
                 {
                     //
-                    if ($rowsgetacc->oven_lock == "0")
+                    if ((int)$rowsgetacc->air_airval >= 0 && (int)$rowsgetacc->air_airval <= 5)
                     {
-                        $rowsgetacc->oven_lock = "LOCKED";
+                        $rowsgetacc->air_airvaltext = "GOOD";
+                    }
+                    if ((int)$rowsgetacc->air_airval >= 6 && (int)$rowsgetacc->air_airval <= 50)
+                    {
+                        $rowsgetacc->air_airvaltext = "CLEANING";
+                    }
+                    if ((int)$rowsgetacc->air_airval >= 51)
+                    {
+                        $rowsgetacc->air_airvaltext = "BAD";
                     }
 
-                    if ($rowsgetacc->oven_lock == "1")
+                    // fan
+                    if ((int)$rowsgetacc->air_fan == "0")
                     {
-                        $rowsgetacc->oven_lock = "OPEN";
+                        $rowsgetacc->air_fantext = "OFF";
+                    }
+                    if ((int)$rowsgetacc->air_fan == "1")
+                    {
+                        $rowsgetacc->air_fantext = "LOW";
+                    }
+                    if ((int)$rowsgetacc->air_fan == "2")
+                    {
+                        $rowsgetacc->air_fantext = "MEDIUM";
+                    }
+                    if ((int)$rowsgetacc->air_fan == "3")
+                    {
+                        $rowsgetacc->air_fantext = "HIGH";
                     }
 
+                    // spray
+                    if ((int)$rowsgetacc->air_spray == "0")
+                    {
+                        $rowsgetacc->air_spraytext = "OFF";
+                    }
+                    if ((int)$rowsgetacc->air_spray == "1")
+                    {
+                        $rowsgetacc->air_spraytext = "1 Minute";
+                    }
+                    if ((int)$rowsgetacc->air_spray == "2")
+                    {
+                        $rowsgetacc->air_spraytext = "3 Minutes";
+                    }
+                    if ((int)$rowsgetacc->air_spray == "3")
+                    {
+                        $rowsgetacc->air_spraytext = "5 Minutes";
+                    }
+                    if ((int)$rowsgetacc->air_spray == "4")
+                    {
+                        $rowsgetacc->air_spraytext = "10 Minutes";
+                    }
+                    if ((int)$rowsgetacc->air_spray == "5")
+                    {
+                        $rowsgetacc->air_spraytext = "15 Minutes";
+                    }
 
                     //
-                    if ($rowsgetacc->oven_status == "0")
-                    {
-                        $rowsgetacc->oven_status = "IDLE";
-                    }
-
-                    if ($rowsgetacc->oven_status == "1")
-                    {
-                        $rowsgetacc->oven_status = "RUNNING";
-                    }
-
-                    if ($rowsgetacc->oven_status == "2")
-                    {
-                        $rowsgetacc->oven_status = "COMPLETE";
-                    }
-
-
-                    $timeDiff = strtotime($dateResult) - (int)$rowsgetacc->oven_connected;
+                    $timeDiff = strtotime($dateResult) - (int)$rowsgetacc->air_connected;
                     if ($timeDiff > 10)
                     {
-                        $rowsgetacc->oven_connected = "OFFLINE";
+                        $rowsgetacc->air_connected = "Disconnected";
                     }
 
                     //
                     if ($timeDiff <= 10)
                     {
-                        $rowsgetacc->oven_connected = "ONLINE";
+                        $rowsgetacc->air_connected = "Connected";
                     }
                 }
 
@@ -681,478 +706,133 @@
     }
 
 
-    // Oven Operation Edit
+
+    // Air Fan Edit
     // ----------------------
-    if ($_GET['mode'] == 'ovenoperationedit')
-    {
-        $resData = JSONGet();
-
-        // 
-        {
-            // idle?
-            if ($resData->dOven->oven_status == "IDLE")
-            {
-                $sql="  update oven_tbl set
-                            oven_status = 1,
-                            oven_timer = oven_timermain,
-                            oven_lock = 0
-                        where
-                            id = '" . $resData->dOven->id . "'
-                "; 
-                $rsgetacc=mysqli_query($connection,$sql);
-
-                // result
-                JSONSet("ok", "Update Success!", "Oven detail has been updated successfully.");
-            }
-
-            // running?
-            if ($resData->dOven->oven_status == "RUNNING")
-            {
-                $sql="  update oven_tbl set
-                            oven_status = 2,
-                            oven_timer = 0
-                        where
-                            id = '" . $resData->dOven->id . "'
-                "; 
-                $rsgetacc=mysqli_query($connection,$sql);
-
-                // result
-                JSONSet("ok", "Update Success!", "Oven detail has been updated successfully.");
-            }
-
-            // complete?
-            if ($resData->dOven->oven_status == "COMPLETE")
-            {
-                $sql="  update oven_tbl set
-                            oven_status = 0
-                        where
-                            id = '" . $resData->dOven->id . "'
-                "; 
-                $rsgetacc=mysqli_query($connection,$sql);
-
-                // result
-                JSONSet("ok", "Update Success!", "Oven detail has been updated successfully.");
-            }
-        }
-
-        echo $resData->dOven->oven_status;
-    }
-
-    // Oven Timer Hour Up Edit
-    // ----------------------
-    if ($_GET['mode'] == 'oventimerhourupedit')
-    {
-        $resData = JSONGet();
-
-        {
-            if ($resData->dOven->oven_status != "IDLE")
-            {
-                return;
-            }
-        }
-
-        // item
-        { 
-            $sql="  update oven_tbl set
-                        oven_timermain = oven_timermain + 3600
-                    where
-                        id = '" . $resData->dOven->id . "'
-            "; 
-            $rsgetacc=mysqli_query($connection,$sql);
-        }
-
-        // result
-        JSONSet("ok", "Update Success!", "Oven detail has been updated successfully.");
-    }
-
-    // Oven Timer Hour Down Edit
-    // ----------------------
-    if ($_GET['mode'] == 'oventimerhourdownedit')
-    {
-        $resData = JSONGet();
-
-        {
-            if ($resData->dOven->oven_status != "IDLE")
-            {
-                return;
-            }
-        }
-
-        // item
-        { 
-            $sql="  update oven_tbl set
-                        oven_timermain = oven_timermain - 3600
-                    where
-                        id = '" . $resData->dOven->id . "' and oven_timermain >= 3600
-            "; 
-            $rsgetacc=mysqli_query($connection,$sql);
-        }
-
-        // result
-        JSONSet("ok", "Update Success!", "Oven detail has been updated successfully.");
-    }
-
-    // Oven Timer Min Up Edit
-    // ----------------------
-    if ($_GET['mode'] == 'oventimerminupedit')
-    {
-        $resData = JSONGet();
-
-        {
-            if ($resData->dOven->oven_status != "IDLE")
-            {
-                return;
-            }
-        }
-
-        // item
-        { 
-            $sql="  update oven_tbl set
-                        oven_timermain = oven_timermain + 60
-                    where
-                        id = '" . $resData->dOven->id . "'
-            "; 
-            $rsgetacc=mysqli_query($connection,$sql);
-        }
-
-        // result
-        JSONSet("ok", "Update Success!", "Oven detail has been updated successfully.");
-    }
-
-    // Oven Timer Min Down Edit
-    // ----------------------
-    if ($_GET['mode'] == 'oventimermindownedit')
-    {
-        $resData = JSONGet();
-
-        {
-            if ($resData->dOven->oven_status != "IDLE")
-            {
-                return;
-            }
-        }
-
-        // item
-        { 
-            $sql="  update oven_tbl set
-                        oven_timermain = oven_timermain - 60
-                    where
-                        id = '" . $resData->dOven->id . "' and oven_timermain >= 60
-            "; 
-            $rsgetacc=mysqli_query($connection,$sql);
-        }
-
-        // result
-        JSONSet("ok", "Update Success!", "Oven detail has been updated successfully.");
-    }
-
-    // Oven Stock Edit
-    // ----------------------
-    if ($_GET['mode'] == 'ovenstockedit')
-    {
-        $resData = JSONGet();
-
-        {
-            /*
-            if ($resData->dOven->oven_status != "IDLE")
-            {
-                return;
-            }
-            */
-        }
-
-        // item
-        { 
-            $sql="  update oven_tbl set
-                        oven_stock = '" . $resData->tStock . "'
-                    where
-                        id = '" . $_GET['oid'] . "'
-            "; 
-            $rsgetacc=mysqli_query($connection,$sql);
-        }
-
-        // result
-        JSONSet("ok", "Update Success!", "Oven detail has been updated successfully.");
-    }
-
-    // Oven Lock Edit
-    // ----------------------
-    if ($_GET['mode'] == 'ovenlockedit')
+    if ($_GET['mode'] == 'airfanedit')
     {
         $resData = JSONGet();
         
-        {
-            /*
-            if ($resData->dOven->oven_status != "IDLE" || $resData->dOven->oven_status != "COMPLETE")
-            {
-                return;
-            }
-            */
-        }
-
-        $lockVal = 0;
-        if ($resData->dOven->oven_lock == "LOCKED")
-        {
-            $lockVal = 1;
-        }
-        else
-        {
-            $lockVal = 0;
-        }
-
         // item
         { 
-            $sql="  update oven_tbl set
-                        oven_lock = '" . $lockVal . "'
+            $sql="  update air_tbl set
+                        air_fan = '" . $resData->airfanlvl . "'
                     where
-                        id = '" . $resData->dOven->id . "'
+                        id = '" . $resData->airid . "'
             "; 
             $rsgetacc=mysqli_query($connection,$sql);
         }
 
         // result
-        JSONSet("ok", "Update Success!", "Oven detail has been updated successfully." . $resData->dOven->oven_lock);
+        JSONSet("ok", "Update Success!", "Air Purifier detail has been updated successfully.");
+    }
+
+    // Air Spray Edit
+    // ----------------------
+    if ($_GET['mode'] == 'airsprayedit')
+    {
+        $resData = JSONGet();
+        
+        // item
+        { 
+            $sql="  update air_tbl set
+                        air_spray = '" . $resData->airsprayint . "'
+                    where
+                        id = '" . $resData->airid . "'
+            "; 
+            $rsgetacc=mysqli_query($connection,$sql);
+        }
+
+        // result
+        JSONSet("ok", "Update Success!", "Air Purifier detail has been updated successfully.");
     }
 
 
 
     // ards
-    // Oven View
+    // Air Fan
     // ----------------------
-    if ($_GET['mode'] == 'getstatus')
+    if ($_GET['mode'] == 'getfan')
     {
         $resData = JSONGet();
 
         // check exist
         {
-            $sql="select * FROM oven_tbl where id = '" . $_GET['id'] . "'"; 
+            $sql="select * FROM air_tbl where id = '" . $_GET['id'] . "'"; 
             $rsgetacc=mysqli_query($connection,$sql);
             while ($rowsgetacc = mysqli_fetch_object($rsgetacc))
             {
-                echo $rowsgetacc->oven_status;
+                echo $rowsgetacc->air_fan;
             }
         }
     } 
 
     // ards
-    // Oven View
+    // Air Spray
     // ----------------------
-    if ($_GET['mode'] == 'getlock')
+    if ($_GET['mode'] == 'getspray')
     {
         $resData = JSONGet();
 
         // check exist
         {
-            $sql="select * FROM oven_tbl where id = '" . $_GET['id'] . "'"; 
+            $sql="select * FROM air_tbl where id = '" . $_GET['id'] . "'"; 
             $rsgetacc=mysqli_query($connection,$sql);
             while ($rowsgetacc = mysqli_fetch_object($rsgetacc))
             {
-                echo $rowsgetacc->oven_lock;
+                echo $rowsgetacc->air_spray;
             }
         }
-    }
+    } 
 
     // ards
-    // Oven View
-    // ----------------------
-    if ($_GET['mode'] == 'getcurrent')
-    {
-        $resData = JSONGet();
-
-        // check exist
-        {
-            $sql="select * FROM oven_tbl where id = '" . $_GET['id'] . "'"; 
-            $rsgetacc=mysqli_query($connection,$sql);
-            while ($rowsgetacc = mysqli_fetch_object($rsgetacc))
-            {
-                echo $rowsgetacc->oven_current;
-            }
-        }
-    }
-
-    // ards
-    // Oven View
-    // ----------------------
-    if ($_GET['mode'] == 'gethumi')
-    {
-        $resData = JSONGet();
-
-        // check exist
-        {
-            $sql="select * FROM oven_tbl where id = '" . $_GET['id'] . "'"; 
-            $rsgetacc=mysqli_query($connection,$sql);
-            while ($rowsgetacc = mysqli_fetch_object($rsgetacc))
-            {
-                echo number_format($rowsgetacc->oven_humi, 2, '.', ''); //echo $rowsgetacc->oven_humi;
-            }
-        }
-    }
-
-    // ards
-    // Oven View
-    // ----------------------
-    if ($_GET['mode'] == 'gettemp')
-    {
-        $resData = JSONGet();
-
-        // check exist
-        {
-            $sql="select * FROM oven_tbl where id = '" . $_GET['id'] . "'"; 
-            $rsgetacc=mysqli_query($connection,$sql);
-            while ($rowsgetacc = mysqli_fetch_object($rsgetacc))
-            {
-                echo number_format($rowsgetacc->oven_temp, 2, '.', ''); //$rowsgetacc->oven_temp;
-            }
-        }
-    }
-
-    // ards
-    // Oven View
-    // ----------------------
-    if ($_GET['mode'] == 'gettimer')
-    {
-        $resData = JSONGet();
-
-        // check exist
-        {
-            $sql="select * FROM oven_tbl where id = '" . $_GET['id'] . "'"; 
-            $rsgetacc=mysqli_query($connection,$sql);
-            while ($rowsgetacc = mysqli_fetch_object($rsgetacc))
-            {
-                echo convertSecondsToTime($rowsgetacc->oven_timer);
-            }
-        }
-    }
-
-    // ards
-    // Oven View
-    // ----------------------
-    if ($_GET['mode'] == 'gettimermain')
-    {
-        $resData = JSONGet();
-
-        // check exist
-        {
-            $sql="select * FROM oven_tbl where id = '" . $_GET['id'] . "'"; 
-            $rsgetacc=mysqli_query($connection,$sql);
-            while ($rowsgetacc = mysqli_fetch_object($rsgetacc))
-            {
-                echo convertSecondsToTime($rowsgetacc->oven_timermain);
-            }
-        }
-    }
-
-    // ards
-    // Oven View
+    // Air Set
     // ----------------------
     if ($_GET['mode'] == 'setdata')
     {
         $resData = JSONGet();
 
-        {
-            // kwh?
-            $watt = $_GET['val1'] * 220;
-            $kwh = ($watt * 24) / 1000;
-        }
-
         //
-        $sql="  update oven_tbl set
-                    oven_current = '" . $_GET['val1'] . "',
-                    oven_kwh = '" . $kwh . "',
-                    oven_humi = '" . $_GET['val2'] . "',
-                    oven_temp = '" . $_GET['val3'] . "'
+        $sql="  update air_tbl set
+                    air_airval = '" . $_GET['val1'] . "'
                 where 
                     id = '" . $_GET['id'] . "'
         ";
         $rsupd=mysqli_query($connection,$sql); 
 
         //
-        $sql="select * FROM oven_tbl where id = '" . $_GET['id'] . "'"; 
+        $sql="select * FROM air_tbl where id = '" . $_GET['id'] . "'"; 
         $rsgetacc=mysqli_query($connection,$sql);
         while ($rowsgetacc = mysqli_fetch_object($rsgetacc))
         {
-            if ($rowsgetacc->oven_status == "1")
+            //
             {
-                $sql="  insert into oven_log_tbl
-                            (
-                                oven_id,
-                                oven_date,
-                                oven_temp,
-                                oven_current,
-                                oven_kwh
-                            )
-                        values
-                            (
-                                '" . $_GET['id'] . "',
-                                '" . $dateResult . "',
-                                '" . $_GET['val3'] . "',
-                                '" . $_GET['val1'] . "',
-                                '" . $kwh . "'
-                            )
-                "; 
-                $rsupd=mysqli_query($connection,$sql);
+
             }
-        }
 
-        
-    }
-
-    // ards
-    // Oven View
-    // ----------------------
-    if ($_GET['mode'] == 'settimer')
-    {
-        $resData = JSONGet();
-
-        {
-
+            $sql="  insert into air_log_tbl 
+                        (
+                            air_id,
+                            air_date,
+                            air_val
+                        )
+                    values
+                        (
+                            '" . $_GET['id'] . "',
+                            '" . $dateResult . "',
+                            '" . $_GET['val1'] . "'
+                        )
+            "; 
+            $rsupd=mysqli_query($connection,$sql);
         }
 
         //
-        $ovenData = new stdClass();
-        $sql="select * FROM oven_tbl where id = '" . $_GET['id'] . "'"; 
-        $rsgetacc=mysqli_query($connection,$sql);
-        while ($rowsgetacc = mysqli_fetch_object($rsgetacc))
-        {
-            $ovenData = $rowsgetacc;
-        }
-
-        {
-            // running?
-            if ($ovenData->oven_status == "1")
-            {
-                if ((int)$ovenData->oven_timer > 0)
-                {
-                    $timeDiff = strtotime($dateResult) - (int)$ovenData->oven_connected;
-
-                    $sql="  update oven_tbl set
-                                oven_timer = oven_timer - " . $timeDiff . "
-                            where 
-                                id = '" . $_GET['id'] . "'
-                    "; 
-                    $rsgetacc=mysqli_query($connection,$sql);
-                }
-
-                if ((int)$ovenData->oven_timer <= 0)
-                {
-                    $sql="  update oven_tbl set
-                                oven_timer = 0,
-                                oven_status = 2
-                            where 
-                                id = '" . $_GET['id'] . "'
-                    "; 
-                    $rsgetacc=mysqli_query($connection,$sql);
-                }
-            }
-        }
-
-        // update connection
-        $sql="  update oven_tbl set
-                    oven_connected = '" . strtotime($dateResult) . "'
+        $sql="  update air_tbl set
+                    air_connected = '" . strtotime($dateResult) . "'
                 where 
                     id = '" . $_GET['id'] . "'
         "; 
-        $rsgetacc=mysqli_query($connection,$sql);
+        $rsupd=mysqli_query($connection,$sql);
     }
 
 

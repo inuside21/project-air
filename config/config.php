@@ -16,7 +16,7 @@
     $_SESSION['mainUrl'] = "";
 
     // Content
-    $contentPageTitle = "PTC App";
+    $contentPageTitle = "Air Purifier App";
     $contentPageLogoSmall = "";
     $contentPageLogoLarge = "";
 
@@ -138,8 +138,8 @@
                     <li class=active><a href=dashboard.php class=material-ripple><i class=material-icons>home</i> Dashboard</a></li>
 
                     <li class="nav-heading "> <span>Oven</span></li>
-                    <li><a href="ovenlist.php" class=material-ripple><i class=material-icons>assignment</i> Oven List</a></li>
-                    <li><a href="ovenadd.php" class=material-ripple><i class=material-icons>assignment</i> Oven Add</a></li>
+                    <li><a href="ovenlist.php" class=material-ripple><i class=material-icons>assignment</i> Air Purifier List</a></li>
+                    <li><a href="ovenadd.php" class=material-ripple><i class=material-icons>assignment</i> Air Purifier Add</a></li>
 
                     <li class="nav-heading "> <span>Accounts</span></li>
                     <li><a href=auserlist.php class=material-ripple><i class=material-icons>home</i> Account List</a></li>
@@ -162,7 +162,7 @@
                     <li class=active><a href=dashboard.php class=material-ripple><i class=material-icons>home</i> Dashboard</a></li>
 
                     <li class="nav-heading "> <span>Oven</span></li>
-                    <li><a href="ovenlist.php" class=material-ripple><i class=material-icons>assignment</i> Oven List</a></li>
+                    <li><a href="ovenlist.php" class=material-ripple><i class=material-icons>assignment</i> Air Purifier List</a></li>
 
                     <li class="nav-heading "> <span>User</span></li>
                     <li><a href="#" class=material-ripple id="uLogout"><i class=material-icons>keyboard_backspace</i> Logout</a></li>
