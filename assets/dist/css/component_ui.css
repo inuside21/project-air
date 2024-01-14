@@ -269,7 +269,7 @@ hr {
 }
 
 .color-red {
-    color: #E5343D !important;
+    color: #333 !important;
 }
 
 .color-violet {
@@ -316,7 +316,7 @@ hr {
 }
 
 .text-danger {
-    color: #E5343D !important;
+    color: #333 !important;
 }
 
 .text-inverse {
@@ -355,7 +355,7 @@ hr {
 }
 
 .border-red {
-    border-color: #E5343D !important;
+    border-color: #333 !important;
 }
 
 .border-violet {
@@ -378,7 +378,7 @@ hr {
 /*background color*/
 
 .bg-red {
-    background: #E5343D !important;
+    background: #333 !important;
 }
 
 .bg-violet {
@@ -510,7 +510,7 @@ nav.navbar.bootsnav ul.nav > li > a::before{
 @media(max-width:920px) {
     nav.navbar .dropdown .megamenu-content .col-menu ul > li > a:hover,
     nav.navbar.navbar-dark .dropdown .megamenu-content .col-menu .title:hover {
-        color: #f43438 !important;
+        color: #333 !important;
     }
 }
 @media(max-width:992px) {
@@ -538,12 +538,12 @@ ul.cart-list > li.total > .btn,
 .attr-nav > ul > li > a span.badge,
 nav.navbar .share ul > li > a:hover,
 nav.navbar .share ul > li > a:focus {
-    background-color: #f43438;
+    background-color: #333;
 }
 
 ul.cart-list > li.total > .btn:hover,
 ul.cart-list > li.total > .btn:focus {
-    background-color: #dc3236 !important;
+    background-color: #333 !important;
 }
 
 nav.bootsnav .megamenu-content .title {
@@ -736,7 +736,7 @@ nav.bootsnav .megamenu-content .title {
 }
 
 .rad-bg-danger {
-    background: #E94B3B;
+    background: #333;
 }
 
 .rad-list-icon {
@@ -916,8 +916,8 @@ nav.bootsnav .megamenu-content .title {
 
 .panel-danger > .panel-heading {
     color: #fff;
-    background-color: #E5343D;
-    border-color: #E5343D;
+    background-color: #333333;
+    border-color: #333333;
 }
 
 .panel-inverse > .panel-heading {
@@ -1015,7 +1015,7 @@ nav.bootsnav .megamenu-content .title {
 }
 
 .inbox-item .profile-status.busy {
-    background-color: #E5343D;
+    background-color: #333333;
 }
 
 .inbox-item .profile-status.offline {
@@ -1188,7 +1188,7 @@ nav.bootsnav .megamenu-content .title {
 }
 
 .activity-list>li.activity-danger:after {
-    border-color: #E5343D;
+    border-color: #333333;
 }
 
 .activity-list>li.activity-warning:after {
@@ -1647,7 +1647,7 @@ nav.bootsnav .megamenu-content .title {
 }
 
 .color2 .amcharts-pie-slice {
-    fill: #E5343D;
+    fill: #333333;
 }
 
 .color3 .amcharts-pie-slice {
@@ -2690,7 +2690,7 @@ table.text-center th {
 }
 
 .checkbox-danger input[type="checkbox"]:checked + label::before {
-    background-color: #E5343D;
+    background-color: #333333;
     border-color: #d9534f;
 }
 
@@ -3571,15 +3571,15 @@ pre .arg {
 /*--- Buttons denger ---*/
 
 .btn-danger {
-    background-color: #E5343D;
-    border-color: #BF2D35;
+    background-color: #333333;
+    border-color: #333333;
 }
 
 .btn-danger:hover,
 .btn-danger:focus,
 .btn-danger:active {
-    background-color: #e7575e;
-    border-color: #BF2D35;
+    background-color: #333;
+    border-color: #333333;
 }
 
 .btn-danger.btn-transparent {
@@ -3597,7 +3597,7 @@ pre .arg {
 }
 
 .btn-danger.btn-outline {
-    color: #E5343D;
+    color: #333333;
     background-color: transparent;
 }
 
@@ -3605,7 +3605,7 @@ pre .arg {
 .btn-danger.btn-outline:focus,
 .btn-danger.btn-outline:active {
     color: #fff;
-    background-color: #E5343D;
+    background-color: #333333;
 }
 
 
@@ -4286,7 +4286,7 @@ pre .arg {
 }
 
 .progress-bar-danger {
-    background-color: #E5343D;
+    background-color: #333333;
 }
 
 .progress-bar-inverse {
@@ -4349,11 +4349,11 @@ pre .arg {
 }
 
 .progress-bar-danger .tooltip .tooltip-inner {
-    background-color: #E5343D;
+    background-color: #333333;
 }
 
 .progress-bar-danger .tooltip.top .tooltip-arrow {
-    border-top: 5px solid #E5343D;
+    border-top: 5px solid #333333;
 }
 
 .progress-bar-inverse .tooltip .tooltip-inner {
@@ -5150,15 +5150,15 @@ label{
 }
 
 .label-danger-outline {
-    color: #E5343D;
+    color: #333333;
     background-color: transparent;
-    border: 2px solid #E5343D;
+    border: 2px solid #333333;
 }
 
 .label-danger {
     color: white;
-    background-color: #E5343D;
-    border: 2px solid #E5343D;
+    background-color: #333333;
+    border: 2px solid #333333;
 }
 
 
@@ -5244,7 +5244,7 @@ label{
 
 .alert-danger {
     color: white;
-    background-color: #E5343D;
+    background-color: #333333;
     border-color: #BD000A;
 }
 
@@ -5463,14 +5463,14 @@ label{
 }
 
 .statistic-filled-2 {
-    background: #E5343D;
-    border-color: #E5343D;
+    background: #333333;
+    border-color: #333333;
     color: #fff;
 }
 
 .statistic-filled-2.outline {
     background: #fff;
-    border: 2px solid #E5343D;
+    border: 2px solid #333333;
     color: #374767;
 }
 
@@ -5556,7 +5556,7 @@ label{
 }
 
 .chart-legend-color.red {
-    background-color: #E5343D;
+    background-color: #333333;
 }
 
 .chart-legend-color.blue {
@@ -5940,7 +5940,7 @@ label{
 }
 
 .twt-category ul li.followers-color {
-    background-color: #E5343D;
+    background-color: #333333;
 }
 
 .twt-category h5 {
@@ -6407,7 +6407,7 @@ label{
 }
 
 .info-aapl li span.orange {
-    background-color: #E5343D;
+    background-color: #333333;
 }
 
 .yearly-change {
@@ -6519,7 +6519,7 @@ label{
 }
 
 .modal-danger .modal-header {
-    background-color: #E5343D;
+    background-color: #333333;
 }
 
 

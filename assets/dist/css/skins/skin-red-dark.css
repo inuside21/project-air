@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .navbar {
     box-shadow: none;
-    background-color: #E5343D;
+    background-color: #333333;
 }
 
 .navbar-header {
@@ -79,8 +79,8 @@
     border: 2px solid #fff;
 }
 .back-top {
-    border: 1px solid #E5343D;
-    background-color: #E5343D;
+    border: 1px solid #333333;
+    background-color: #333333;
 }
 .back-top:hover {
     color: #fff;

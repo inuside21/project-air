@@ -156,13 +156,19 @@
 
             <!-- Menu Header -->
             <nav class="navbar navbar-fixed-top" role=navigation>
-                <div class=navbar-header>
-                    <button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse>
+                <div class=navbar-header style="background-color: white;">
+                    <button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse style="float: left; color: black;">
                         <span class=sr-only>Toggle navigation</span>
-                        <i class=material-icons>apps</i>
+                        <i class=material-icons>menu</i>
                     </button>
+
+                    <button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse style="float: right; color: black;">
+                        <span class=sr-only>Toggle navigation</span>
+                        <i class=material-icons>help</i>
+                    </button>
+
                     <a class=navbar-brand href="#">
-                        <img class="main-logo hidden-xs" src="<?php echo $contentPageLogoSmall; ?>" width="150" height="50" alt="">
+                        <img class="main-logo" src="<?php echo $contentPageLogoSmall; ?>" width="100" height="100" alt="">
                     </a>
                 </div>
                 <div class=nav-container>
@@ -190,53 +196,49 @@
             <div id=page-wrapper>
                 <div class=content>
 
-                    <br>
+                    <br><br><br>
 
-                    <div class="row">
-                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="row d-none">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <a>
                                 <div class="statistic-box statistic-filled-3">
                                     <h2><span class="count-number1" id="count-numberAir">---</span><span class="slight"></span></h2>
                                     <div class="small">Air Quality</div>
-                                    <i class="ti-check-box statistic_icon"></i>
                                 </div>
                             </a>
                         </div>
 
-                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <a>
                                 <div class="statistic-box statistic-filled-3">
                                     <h2><span class="count-number1" id="count-numberConnection">---</span><span class="slight"></span></h2>
                                     <div class="small">Connection</div>
-                                    <i class="ti-check-box statistic_icon"></i>
                                 </div>
                             </a>
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="cMenuFanBtn">
+                    <div class="row d-none">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="cMenuFanBtnOld">
                             <a>
                                 <div class="statistic-box statistic-filled-3">
                                     <h2><span class="count-number1" id="count-numberFan">---</span><span class="slight"></span></h2>
                                     <div class="small">Fan Level</div>
-                                    <i class="ti-check-box statistic_icon"></i>
                                 </div>
                             </a>
                         </div>
 
-                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="cMenuSprayBtn">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="cMenuSprayBtnOld">
                             <a>
                                 <div class="statistic-box statistic-filled-3">
                                     <h2><span class="count-number1" id="count-numberSpray">---</span><span class="slight"></span></h2>
                                     <div class="small">Spray Interval</div>
-                                    <i class="ti-check-box statistic_icon"></i>
                                 </div>
                             </a>
                         </div>
                     </div>
 
-                    <div class="row text-right">
+                    <div class="row text-right d-none">
                         <a id="fSubmit">
                             <button type="button" class="btn btn-labeled btn-danger m-b-5">
                                 <span class="btn-label"><i class="glyphicon glyphicon-floppy-disk"></i></span>Save
@@ -245,7 +247,7 @@
                     </div>
 
                     <form id="fInfo" enctype="multipart/form-data">
-                        <div class=row>
+                        <div class="row d-none">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 p-t-30 p-b-30 d-none">
                                 <div class="text-center">
                                     <label for="image-upload">
@@ -302,14 +304,129 @@
                         </div>
                     </form>
 
-                    <div class=row>
+
+                    <!-- Title -->
+                    <div class="row" id="dev-titlediv">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class=row>
+                                <div class="text-center">
+                                    <h1><b><span id="dev-title"></span></b></h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dashboard / L = 1 -->
+                    <div class="row" id="dev-statusdiv">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class=row>
+                                <div class="text-center">
+                                    <img src="assets/images/purifier.png" height="256" width="256">
+                                    <br><br>
+                                    <h1><b><span id="dev-name"></span></b></h1>
+                                    <h3 style="margin-top: -5px;"><span id="dev-connection" style="color: green"></span></h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="cMenuFanBtn">
+                            <a>
+                                <div style="margin-left: 20px; margin-right: 20px; margin-bottom: 20px; border: 3px; border-color: white; border-radius: 20px; background-color: white; padding: 20px; height: 80px;">
+                                    <div style="float: left; font-size: 30px;">
+                                        <i class=material-icons style="vertical-align: middle;">power_settings_new</i>
+                                        <span style="margin-left: 10px;">Power</span>
+                                    </div>
+                                    <div style="float: right; font-size: 25px;">
+                                        <span id="dev-fanstatus" style="color: blue">OFF</span>
+                                    </div>
+                                </div>
+                                
+                            </a>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="cMenuFanBtn2">
+                            <a>
+                                <div style="margin-left: 20px; margin-right: 20px; margin-bottom: 20px; border: 3px; border-color: white; border-radius: 20px; background-color: white; padding: 20px; height: 80px;">
+                                    <div style="float: left; font-size: 30px;">
+                                        <i class=material-icons style="vertical-align: middle;">dvr</i>
+                                        <span style="margin-left: 10px;">Level</span>
+                                    </div>
+                                    <div style="float: right; font-size: 25px;">
+                                        <span id="dev-fanlevel" style="color: blue">OFF</span>
+                                    </div>
+                                </div>
+                                
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Air Status / L = 2 -->
+                    <div class="row d-none" id="dev-qualitydiv">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class=row>
+                                <div class="text-center">
+                                    <img src="assets/images/" id="dev-qualityimg" height="310" width="256">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Spray / L = 4 -->
+                    <div class="row" id="dev-spraydiv" style="margin-top: 60px;">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="cMenuSprayBtn2">
+                            <a>
+                                <div style="margin-left: 20px; margin-right: 20px; margin-bottom: 20px; border: 3px; border-color: white; border-radius: 20px; background-color: white; padding: 20px; height: 80px;">
+                                    <div style="float: left; font-size: 25px;">
+                                        <i class=material-icons style="vertical-align: middle;">power_settings_new</i>
+                                        <span style="margin-left: 10px;">Power</span>
+                                    </div>
+                                    <div style="float: right; font-size: 25px;">
+                                        <span id="dev-spraystatus2" style="color: blue">OFF</span>
+                                    </div>
+                                </div>
+                                
+                            </a>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="cMenuSprayBtn3">
+                            <a>
+                                <div style="margin-left: 20px; margin-right: 20px; margin-bottom: 20px; border: 3px; border-color: white; border-radius: 20px; background-color: white; padding: 20px; height: 80px;">
+                                    <div style="float: left; font-size: 25px;">
+                                        <i class=material-icons style="vertical-align: middle;">timer</i>
+                                        <span style="margin-left: 10px;">Automatic</span>
+                                    </div>
+                                    <div style="float: right; font-size: 25px;">
+                                        <span id="dev-spraystatus3" style="color: blue">OFF</span>
+                                    </div>
+                                </div>
+                                
+                            </a>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="tSprayOnce">
+                            <a>
+                                <div style="margin-left: 20px; margin-right: 20px; margin-bottom: 20px; border: 3px; border-color: white; border-radius: 20px; background-color: white; padding: 20px; height: 80px;">
+                                    <div style="float: left; font-size: 25px;">
+                                        <i class=material-icons style="vertical-align: middle;">blur_on</i>
+                                        <span style="margin-left: 10px;">Spray</span>
+                                    </div>
+                                    <div style="float: right; font-size: 25px;">
+                                        <span id="dev-spraystatus3" style="color: blue">Press</span>
+                                    </div>
+                                </div>
+                                
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Logs -->
+                    <div class="row" id="dev-logs" style="margin-top: 60px;">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div class=row>
                                 <div class="panel panel-danger">
                                     <div class="panel-heading">
                                         <div class="panel-title">
                                             <h4>Logs</h4> <br>
-                                            <h5>Logging of this Air Purifier</h5>
                                         </div>
                                     </div>
                                     <div class="panel-body">
@@ -331,57 +448,191 @@
                         </div>
                     </div>
 
-                    <div class="modal fade modal-danger in" id="modal-fan" tabindex="-1" role="dialog">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                    <h1 class="modal-title"><b style="font-size:60px;">Fan Level: <br><span id="tFanText">---</span></b></h1>
-                                </div>
-                                <div class="modal-body">
-                                    <p>
-                                    <form id="fInfoTimer" enctype="multipart/form-data">
-                                        <div class="text-center">
-                                            <button type="button" class="btn btn-success" id="tFanOffBtn">OFF</button> 
-                                            <button type="button" class="btn btn-success" id="tFanLowBtn">LOW</button> 
-                                            <button type="button" class="btn btn-success" id="tFanMedBtn">MEDIUM</button> 
-                                            <button type="button" class="btn btn-success" id="tFanHighBtn">HIGH</button> 
-                                        </div>
-                                    </form>
 
-                                    </p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <!-- Modals -->
+                    <div class="modal fade modal-danger in" id="modal-fan" tabindex="-1" role="dialog" style="top: auto;">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content" style="height: 350px;">
+                                <div class="modal-body">
+                                
+                                    <h2 style="margin-left: 20px;"><b>Are you sure?</b></h2>
+                                    
+                                    <br>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="tFanOffBtn" data-dismiss="modal">
+                                        <a>
+                                            <div style="margin-left: 20px; margin-right: 20px; margin-bottom: 20px; border: 3px; border-color: #f6f7fb; border-radius: 20px; background-color: #f6f7fb; padding: 20px; height: 80px;">
+                                                <div class="text-center" style="font-size: 30px;">
+                                                    <span style="margin-left: 10px;"><b>Yes</b></span>
+                                                </div>
+                                            </div>
+                                            
+                                        </a>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" data-dismiss="modal">
+                                        <a>
+                                            <div style="margin-left: 20px; margin-right: 20px; margin-bottom: 20px; border: 3px; border-color: #f6f7fb; border-radius: 20px; background-color: #f6f7fb; padding: 20px; height: 80px;">
+                                                <div class="text-center" style="font-size: 30px;">
+                                                    <span style="margin-left: 10px;"><b>No</b></span>
+                                                </div>
+                                            </div>
+                                            
+                                        </a>
+                                    </div>
+
                                 </div>
                             </div><!-- /.modal-content -->
                         </div><!-- /.modal-dialog -->
                     </div>
 
-                    <div class="modal fade modal-danger in" id="modal-spray" tabindex="-1" role="dialog">
+                    <div class="modal fade modal-danger in" id="modal-fan2" tabindex="-1" role="dialog" style="top: auto;">
                         <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                    <h1 class="modal-title"><b style="font-size:60px;">Spray Interval: <br><span id="tSprayText">---</span></b></h1>
-                                </div>
+                            <div class="modal-content" style="height: 450px;">
                                 <div class="modal-body">
-                                    <p>
-                                    <form id="fInfoTimer" enctype="multipart/form-data">
-                                        <div class="text-center">
-                                            <button type="button" class="btn btn-success" id="tSpray0">OFF</button> 
-                                            <button type="button" class="btn btn-success" id="tSpray1">1 Minute</button> 
-                                            <button type="button" class="btn btn-success" id="tSpray2">3 Minutes</button> <br><br>
-                                            <button type="button" class="btn btn-success" id="tSpray3">5 Minutes</button> 
-                                            <button type="button" class="btn btn-success" id="tSpray4">10 Minutes</button>
-                                            <button type="button" class="btn btn-success" id="tSpray5">15 Minutes</button> 
-                                        </div>
-                                    </form>
 
-                                    </p>
+                                    <h2 style="margin-left: 20px;"><b>Adjust Level</b></h2>
+                                    
+                                    <br>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="tFanLowBtn" data-dismiss="modal">
+                                        <a>
+                                            <div style="margin-left: 20px; margin-right: 20px; margin-bottom: 20px; border: 3px; border-color: #f6f7fb; border-radius: 20px; background-color: #f6f7fb; padding: 20px; height: 80px;">
+                                                <div class="text-center" style="font-size: 30px;">
+                                                    <span style="margin-left: 10px;"><b>Low</b></span>
+                                                </div>
+                                            </div>
+                                            
+                                        </a>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="tFanMedBtn" data-dismiss="modal">
+                                        <a>
+                                            <div style="margin-left: 20px; margin-right: 20px; margin-bottom: 20px; border: 3px; border-color: #f6f7fb; border-radius: 20px; background-color: #f6f7fb; padding: 20px; height: 80px;">
+                                                <div class="text-center" style="font-size: 30px;">
+                                                    <span style="margin-left: 10px;"><b>Medium</b></span>
+                                                </div>
+                                            </div>
+                                            
+                                        </a>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="tFanHighBtn" data-dismiss="modal">
+                                        <a>
+                                            <div style="margin-left: 20px; margin-right: 20px; margin-bottom: 20px; border: 3px; border-color: #f6f7fb; border-radius: 20px; background-color: #f6f7fb; padding: 20px; height: 80px;">
+                                                <div class="text-center" style="font-size: 30px;">
+                                                    <span style="margin-left: 10px;"><b>High</b></span>
+                                                </div>
+                                            </div>
+                                            
+                                        </a>
+                                    </div>
+
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div>
+
+                    <div class="modal fade modal-danger in" id="modal-spray" tabindex="-1" role="dialog" style="top: auto;">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content" style="height: 350px;">
+                                <div class="modal-body">
+                                
+                                    <h2 style="margin-left: 20px;"><b>Are you sure?</b></h2>
+                                    
+                                    <br>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="tSpray0" data-dismiss="modal">
+                                        <a>
+                                            <div style="margin-left: 20px; margin-right: 20px; margin-bottom: 20px; border: 3px; border-color: #f6f7fb; border-radius: 20px; background-color: #f6f7fb; padding: 20px; height: 80px;">
+                                                <div class="text-center" style="font-size: 30px;">
+                                                    <span style="margin-left: 10px;"><b>Yes</b></span>
+                                                </div>
+                                            </div>
+                                            
+                                        </a>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" data-dismiss="modal">
+                                        <a>
+                                            <div style="margin-left: 20px; margin-right: 20px; margin-bottom: 20px; border: 3px; border-color: #f6f7fb; border-radius: 20px; background-color: #f6f7fb; padding: 20px; height: 80px;">
+                                                <div class="text-center" style="font-size: 30px;">
+                                                    <span style="margin-left: 10px;"><b>No</b></span>
+                                                </div>
+                                            </div>
+                                            
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div>
+
+                    <div class="modal fade modal-danger in" id="modal-spray2" tabindex="-1" role="dialog" style="top: auto;">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content" style="height: 650px;">
+                                <div class="modal-body text-center">
+                                
+                                    <h2 style="margin-left: 20px;"><b><span style="font-size: 80px;" id="modal2-spraymain">20</span></b></h2>
+                                    
+                                    <br>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="tSpray1" data-dismiss="modal">
+                                        <a>
+                                            <div style="margin-left: 20px; margin-right: 20px; margin-bottom: 20px; border: 3px; border-color: #f6f7fb; border-radius: 20px; background-color: #f6f7fb; padding: 20px; height: 80px;">
+                                                <div class="text-center" style="font-size: 30px;">
+                                                    <span style="margin-left: 10px;"><b>1 Minute</b></span>
+                                                </div>
+                                            </div>
+                                            
+                                        </a>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="tSpray2" data-dismiss="modal">
+                                        <a>
+                                            <div style="margin-left: 20px; margin-right: 20px; margin-bottom: 20px; border: 3px; border-color: #f6f7fb; border-radius: 20px; background-color: #f6f7fb; padding: 20px; height: 80px;">
+                                                <div class="text-center" style="font-size: 30px;">
+                                                    <span style="margin-left: 10px;"><b>3 Minutes</b></span>
+                                                </div>
+                                            </div>
+                                            
+                                        </a>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="tSpray3" data-dismiss="modal">
+                                        <a>
+                                            <div style="margin-left: 20px; margin-right: 20px; margin-bottom: 20px; border: 3px; border-color: #f6f7fb; border-radius: 20px; background-color: #f6f7fb; padding: 20px; height: 80px;">
+                                                <div class="text-center" style="font-size: 30px;">
+                                                    <span style="margin-left: 10px;"><b>5 Minutes</b></span>
+                                                </div>
+                                            </div>
+                                            
+                                        </a>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="tSpray4" data-dismiss="modal">
+                                        <a>
+                                            <div style="margin-left: 20px; margin-right: 20px; margin-bottom: 20px; border: 3px; border-color: #f6f7fb; border-radius: 20px; background-color: #f6f7fb; padding: 20px; height: 80px;">
+                                                <div class="text-center" style="font-size: 30px;">
+                                                    <span style="margin-left: 10px;"><b>10 Minutes</b></span>
+                                                </div>
+                                            </div>
+                                            
+                                        </a>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="tSpray5" data-dismiss="modal">
+                                        <a>
+                                            <div style="margin-left: 20px; margin-right: 20px; margin-bottom: 20px; border: 3px; border-color: #f6f7fb; border-radius: 20px; background-color: #f6f7fb; padding: 20px; height: 80px;">
+                                                <div class="text-center" style="font-size: 30px;">
+                                                    <span style="margin-left: 10px;"><b>15 Minutes</b></span>
+                                                </div>
+                                            </div>
+                                            
+                                        </a>
+                                    </div>
+
                                 </div>
                             </div><!-- /.modal-content -->
                         </div><!-- /.modal-dialog -->
@@ -419,6 +670,10 @@
             // ===========================
             const params = new URLSearchParams(window.location.search);
             const getId = params.get('id');
+            const devViewId = params.get('l');  // 1 - dashboard
+                                                // 2 - air status
+                                                // 3 - air cleaner
+                                                // 4 - spray
             
             var getReqDataAir;
             var table1;
@@ -449,7 +704,7 @@
                         text: "Pressing the Proceed button will save the data.",
                         type: "warning",
                         showCancelButton: true,
-                        confirmButtonColor: "#E5343D",
+                        confirmButtonColor: "#333333",
                         confirmButtonText: "Proceed",
                         closeOnConfirm: false
                     },
@@ -536,7 +791,7 @@
                         text: "Pressing the Proceed button will REMOVE the data.",
                         type: "warning",
                         showCancelButton: true,
-                        confirmButtonColor: "#E5343D",
+                        confirmButtonColor: "#333333",
                         confirmButtonText: "Proceed",
                         closeOnConfirm: false
                     },
@@ -590,7 +845,19 @@
 
             // Fan
             $('#cMenuFanBtn').click(function(e) {
-                $('#modal-fan').modal('show');
+                if (getReqDataAir.air_fan == "0")
+                {
+                    $('#modal-fan2').modal('show');
+                }
+                else
+                {
+                    $('#modal-fan').modal('show');
+                }
+               
+            });
+
+            $('#cMenuFanBtn2').click(function(e) {
+                $('#modal-fan2').modal('show');
             });
 
             $('#tFanOffBtn').click(function(e) {
@@ -667,7 +934,46 @@
 
             // Spray
             $('#cMenuSprayBtn').click(function(e) {
-                $('#modal-spray').modal('show');
+                if (getReqDataAir.air_spray == "0")
+                {
+                    $('#modal-spray2').modal('show');
+                }
+                else
+                {
+                    $('#modal-spray').modal('show');
+                }
+            });
+
+            $('#cMenuSprayBtn2').click(function(e) {
+                if (getReqDataAir.air_spray == "0")
+                {
+                    $('#modal-spray2').modal('show');
+                }
+                else
+                {
+                    $('#modal-spray').modal('show');
+                }
+            });
+
+            $('#cMenuSprayBtn3').click(function(e) {
+                $('#modal-spray2').modal('show');
+            });
+
+            $('#tSprayOnce').click(function(e) {
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "server/api.php?mode=airspray2edit",
+                    data: JSON.stringify({
+                        airid: getReqDataAir.id,
+                    }),
+                    beforeSend: function() {
+                    },
+                    success: function(data) {
+                    },
+                    error: function(data) {
+                    }
+                });
             });
 
             $('#tSpray0').click(function(e) {
@@ -861,8 +1167,27 @@
                             $('#count-numberFan').text(getReqDataAir.air_fantext);
                             $('#count-numberSpray').text(getReqDataAir.air_spraytext);
 
+                            //
+                            {
+                                if (getReqDataAir.air_connected == "Connected")
+                                {
+                                    $('#dev-connection').text(getReqDataAir.air_connected);
+                                    $('#dev-connection').css('color', 'green');
+                                }
+
+                                if (getReqDataAir.air_connected == "Disconnected")
+                                {
+                                    $('#dev-connection').text(getReqDataAir.air_connected);
+                                    $('#dev-connection').css('color', 'red');
+                                }
+
+                                $('#dev-name').text(getReqDataAir.air_name);
+                            }
+
                             $('#tFanText').text(getReqDataAir.air_fantext);
                             $('#tSprayText').text(getReqDataAir.air_spraytext);
+
+                            $('#modal2-spraymain').text(getReqDataAir.air_spraytext);
 
                             /*
                             $('#pDept').trigger('change');
@@ -870,14 +1195,66 @@
                             $('#pPhase').trigger('change');
                             $('#pCustomer').trigger('change');
                             */
+
+                            // L = 1?
+                            {
+                                LoadDisplay();
+
+                                if (devViewId == "1")
+                                {
+                                    $('#dev-statusdiv').show();
+
+                                    // SPRAY OFF
+                                    if (getReqDataAir.air_fan == "0")
+                                    {
+                                        $('#dev-fanstatus').text("OFF");
+                                    }
+                                    else
+                                    {
+                                        $('#dev-fanstatus').text("ON");
+                                    }
+                                    
+                                    $('#dev-fanlevel').text(getReqDataAir.air_fantext);
+                                }
+
+                                if (devViewId == "2")
+                                {
+                                    $('#dev-titlediv').show();
+                                    $('#dev-qualitydiv').show();
+                                    $('#dev-logs').show();
+
+                                    $('#dev-title').text("Air Status");
+                                    $("#dev-qualityimg").attr("src", "assets/images/" + getReqDataAir.air_airvaltext + ".png");
+                                }
+
+                                if (devViewId == "4")
+                                {
+                                    $('#dev-titlediv').show();
+                                    $('#dev-spraydiv').show();
+
+                                    $('#dev-title').text("Spray Cleaner");
+
+                                    // SPRAY OFF
+                                    if (getReqDataAir.air_spray == "0")
+                                    {
+                                        $('#dev-spraystatus2').text("OFF");
+                                        $('#dev-spraystatus3').text(getReqDataAir.air_spraytext);
+                                    }
+                                    else
+                                    {
+                                        $('#dev-spraystatus2').text("ON");
+                                        $('#dev-spraystatus3').text(getReqDataAir.air_spraytext);
+                                    }
+                                }
+                            }
                         }
                         else
                         {
-                            window.location.href = "ovenlist.php";
+                            //window.location.href = "ovenlist.php";
                         }
                     },
                     error: function(data) {
-                        window.location.href = "ovenlist.php";
+                        //window.location.href = "ovenlist.php";
                     }
                 });
             }
@@ -916,6 +1293,15 @@
                         },
                     ]
                 });
+            }
+
+            function LoadDisplay()
+            {
+                $('#dev-titlediv').hide();
+                $('#dev-statusdiv').hide();
+                $('#dev-qualitydiv').hide();
+                $('#dev-spraydiv').hide();
+                $('#dev-logs').hide();
             }
         </script>
 

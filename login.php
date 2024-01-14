@@ -31,16 +31,13 @@
         <!-- Content Wrapper -->
         <div class="login-wrapper">
             <div class="container-center">
-                <div class="panel panel-bd">
-                    <div class="panel-heading">
+                <div class="panel panel-bd" style="box-shadow: none; border: none;">
+                    <div class="panel-heading" style="border: none;">
                         <center><img src="<?php echo $contentPageLogoLarge; ?>" height="250" width="250"></center>
                         <div class="view-header" style="margin-bottom: 10px;">
                             <div class="header-icon">
-                                <i class="pe-7s-unlock text-danger"></i>
                             </div>
                             <div class="header-title">
-                                <h3>Login</h3> <br>
-                                <small><strong>Please enter your credentials to login.</strong></small>
                             </div>
                         </div>
                     </div>
@@ -48,20 +45,16 @@
                         <form id="fInfo" method="post" enctype="multipart/form-data">
                             <!--Social Buttons--> 
                             <div class="form-group">
-                                <label class="control-label">Username</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                    <input id="username" type="text" class="form-control" name="uuname" placeholder="Username" autocorrect="off" autocapitalize="none">
+                                    <input id="username" type="text" class="form-control" name="uuname" placeholder="Username" autocorrect="off" autocapitalize="none" style="font-size: 25px; height: 50px;">
                                 </div>
-                                <span class="help-block small">Your account username</span>
                             </div>
                             <div class="form-group">
-                                <label class="control-label">Password</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                                    <input id="pass" type="password" class="form-control" name="upword" placeholder="******" autocorrect="off" autocapitalize="none">
+                                    <input id="pass" type="password" class="form-control" name="upword" placeholder="******" autocorrect="off" autocapitalize="none" style="font-size: 25px; height: 50px;">
                                 </div>
-                                <span class="help-block small">Your account password</span>
                             </div>
                             <div>
                                 <button class="btn btn-danger btn-block pull-right" type="button" id="fSubmit" name="fSubmit">Login</button>
@@ -109,7 +102,7 @@
                                 //message
                                 //swal("Added!", result.message, "success");
                                 localStorage.setItem("tokenId", result.data);
-                                window.location.href = "ovenview.php?id=1";
+                                window.location.href = "ovenview.php?id=1&l=1";
                             }
                             else
                             {

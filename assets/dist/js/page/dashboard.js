@@ -187,7 +187,7 @@ $(document).ready(function () {
                 "bulletSize": 5,
                 "hideBulletsCount": 50,
                 "lineThickness": 2,
-                "lineColor": "#E5343D",
+                "lineColor": "#333333",
                 "type": "smoothedLine",
                 "dashLength": 5,
                 "title": "Market Days ALL",
@@ -538,12 +538,12 @@ $(document).ready(function () {
                 "valueField": "duration",
                 "type": "line",
                 "valueAxis": "a3",
-                "lineColor": "#E5343D",
+                "lineColor": "#333333",
                 "balloonText": "[[value]]",
                 "lineThickness": 1,
                 "legendValueText": "[[value]]",
                 "bullet": "square",
-                "bulletBorderColor": "#E5343D",
+                "bulletBorderColor": "#333333",
                 "bulletBorderThickness": 1,
                 "bulletBorderAlpha": 1,
                 "dashLengthField": "dashLength",
@@ -595,7 +595,7 @@ $(document).ready(function () {
                 }, {
                     "id": "line2",
                     "alpha": 0,
-                    "color": "#E5343D",
+                    "color": "#333333",
                     "latitudes": [23.684994, 48.8567, 43.8163, 34.3, 23, 61.524010, 20.593684, 33.223191],
                     "longitudes": [90.356331, 2.3510, -79.4287, -118.15, -82, 105.318756, 78.962880, 43.679291]
                 }],
@@ -668,16 +668,16 @@ $(document).ready(function () {
         },
 
         "imagesSettings": {
-            "color": "#E5343D",
-            "rollOverColor": "#E5343D",
-            "selectedColor": "#E5343D",
+            "color": "#333333",
+            "rollOverColor": "#333333",
+            "selectedColor": "#333333",
             "pauseDuration": 0.2,
             "animationDuration": 4,
             "adjustAnimationSpeed": true
         },
 
         "linesSettings": {
-            "color": "#E5343D",
+            "color": "#333333",
             "alpha": 0.4
         },
 

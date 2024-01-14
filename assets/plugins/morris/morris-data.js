@@ -56,7 +56,7 @@ $(function () {
         resize: true,
         lineColors: [
             '#5b69bc',
-            '#E5343D',
+            '#333333',
             '#558B2F'
         ]
     });

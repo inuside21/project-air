@@ -92,13 +92,19 @@
 
             <!-- Menu Header -->
             <nav class="navbar navbar-fixed-top" role=navigation>
-                <div class=navbar-header>
-                    <button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse>
+                <div class=navbar-header style="background-color: white;">
+                    <button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse style="float: left; color: black;">
                         <span class=sr-only>Toggle navigation</span>
-                        <i class=material-icons>apps</i>
+                        <i class=material-icons>menu</i>
                     </button>
+
+                    <button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse style="float: right; color: black;">
+                        <span class=sr-only>Toggle navigation</span>
+                        <i class=material-icons>help</i>
+                    </button>
+
                     <a class=navbar-brand href="#">
-                        <img class="main-logo hidden-xs" src="<?php echo $contentPageLogoSmall; ?>" width="150" height="50" alt="">
+                        <img class="main-logo" src="<?php echo $contentPageLogoSmall; ?>" width="100" height="100" alt="">
                     </a>
                 </div>
                 <div class=nav-container>
@@ -476,8 +482,8 @@
                     "graphs": [{
                             "id": "g1",
                             "valueAxis": "v1",
-                            "lineColor": "#E5343D",
-                            "fillColors": "#E5343D",
+                            "lineColor": "#333333",
+                            "fillColors": "#333333",
                             "fillAlphas": 1,
                             "type": "column",
                             "title": "Item Quantity",

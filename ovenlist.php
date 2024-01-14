@@ -46,13 +46,19 @@
 
             <!-- Menu Header -->
             <nav class="navbar navbar-fixed-top" role=navigation>
-                <div class=navbar-header>
-                    <button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse>
+                <div class=navbar-header style="background-color: white;">
+                    <button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse style="float: left; color: black;">
                         <span class=sr-only>Toggle navigation</span>
-                        <i class=material-icons>apps</i>
+                        <i class=material-icons>menu</i>
                     </button>
+
+                    <button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse style="float: right; color: black;">
+                        <span class=sr-only>Toggle navigation</span>
+                        <i class=material-icons>help</i>
+                    </button>
+
                     <a class=navbar-brand href="#">
-                        <img class="main-logo hidden-xs" src="<?php echo $contentPageLogoSmall; ?>" width="150" height="50" alt="">
+                        <img class="main-logo" src="<?php echo $contentPageLogoSmall; ?>" width="100" height="100" alt="">
                     </a>
                 </div>
                 <div class=nav-container>
@@ -79,6 +85,9 @@
             <!-- Main Content -->
             <div id=page-wrapper>
                 <div class=content>
+
+                    <br><br>
+
                     <div class=content-header>
                         <div class=header-icon>
                             <i class=pe-7s-box1></i>
@@ -230,7 +239,7 @@
                         { 
                             data: null, 
                             render: function ( data, type, row, meta ) {
-                                return '<center><a href="ovenview.php?id=' + data.id + '"><h4><b>' + data.air_name + '</b></h4></a><center>';
+                                return '<center><a href="ovenview.php?id=' + data.id + '&l=1"><h4><b>' + data.air_name + '</b></h4></a><center>';
                             } 
                         },
                         { 

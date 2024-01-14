@@ -175,7 +175,7 @@
             {
                 if ($rowsgetacc->user_pos == "1")
                 {
-                    $rowsgetacc->user_pos = "User";
+                    $rowsgetacc->user_pos = "Employee";
                 }
 
                 if ($rowsgetacc->user_pos == "0")
@@ -747,6 +747,26 @@
         JSONSet("ok", "Update Success!", "Air Purifier detail has been updated successfully.");
     }
 
+    // Air Spray 2 Edit
+    // ----------------------
+    if ($_GET['mode'] == 'airspray2edit')
+    {
+        $resData = JSONGet();
+        
+        // item
+        { 
+            $sql="  update air_tbl set
+                        air_spray2 = '1'
+                    where
+                        id = '" . $resData->airid . "'
+            "; 
+            $rsgetacc=mysqli_query($connection,$sql);
+        }
+
+        // result
+        JSONSet("ok", "Update Success!", "Air Purifier detail has been updated successfully.");
+    }
+
 
 
     // ards
@@ -786,6 +806,24 @@
     } 
 
     // ards
+    // Air Spray 2
+    // ----------------------
+    if ($_GET['mode'] == 'getspray2')
+    {
+        $resData = JSONGet();
+
+        // check exist
+        {
+            $sql="select * FROM air_tbl where id = '" . $_GET['id'] . "'"; 
+            $rsgetacc=mysqli_query($connection,$sql);
+            while ($rowsgetacc = mysqli_fetch_object($rsgetacc))
+            {
+                echo $rowsgetacc->air_spray2;
+            }
+        }
+    } 
+
+    // ards
     // Air Set
     // ----------------------
     if ($_GET['mode'] == 'setdata')
@@ -794,7 +832,8 @@
 
         //
         $sql="  update air_tbl set
-                    air_airval = '" . $_GET['val1'] . "'
+                    air_airval = '" . $_GET['val1'] . "',
+                    air_spray2 = '0'
                 where 
                     id = '" . $_GET['id'] . "'
         ";

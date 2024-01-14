@@ -46,13 +46,19 @@
 
             <!-- Menu Header -->
             <nav class="navbar navbar-fixed-top" role=navigation>
-                <div class=navbar-header>
-                    <button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse>
+                <div class=navbar-header style="background-color: white;">
+                    <button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse style="float: left; color: black;">
                         <span class=sr-only>Toggle navigation</span>
-                        <i class=material-icons>apps</i>
+                        <i class=material-icons>menu</i>
                     </button>
+
+                    <button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse style="float: right; color: black;">
+                        <span class=sr-only>Toggle navigation</span>
+                        <i class=material-icons>help</i>
+                    </button>
+
                     <a class=navbar-brand href="#">
-                        <img class="main-logo hidden-xs" src="<?php echo $contentPageLogoSmall; ?>" width="150" height="50" alt="">
+                        <img class="main-logo" src="<?php echo $contentPageLogoSmall; ?>" width="100" height="100" alt="">
                     </a>
                 </div>
                 <div class=nav-container>
@@ -79,6 +85,9 @@
             <!-- Main Content -->
             <div id=page-wrapper>
                 <div class=content>
+
+                    <br><br>
+
                     <div class=content-header>
                         <div class=header-icon>
                             <i class=pe-7s-user></i>
@@ -105,12 +114,6 @@
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class=row>
                                     <div class="panel panel-danger">
-                                        <div class="panel-heading">
-                                            <div class="panel-title">
-                                                <h4>Account Information</h4> <br>
-                                                <h5>General information of the account</h5>
-                                            </div>
-                                        </div>
                                         <div class="panel-body">
                                             <div class="row">
                                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -205,7 +208,7 @@
                         text: "Pressing the Proceed button will save the data.",
                         type: "warning",
                         showCancelButton: true,
-                        confirmButtonColor: "#E5343D",
+                        confirmButtonColor: "#333333",
                         confirmButtonText: "Proceed",
                         closeOnConfirm: false
                     },

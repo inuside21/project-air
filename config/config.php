@@ -7,7 +7,8 @@
     // Date
     date_default_timezone_set("Asia/Manila");
     $date = new DateTime();
-    $dateResult = $date->format('Y-m-d H:i:s');
+    //$dateResult = $date->format('Y-m-d H:i:s');
+    $dateResult = $date->format('Y-m-d h:i:s A');
     $dateOnlyResult = $date->format('Y-m-d');
     $dateOnlyResultYearMonth = $date->format('Y-m');
     $dateOnlyResultYear = $date->format('Y');
@@ -129,15 +130,16 @@
         
     }
 
+    /*
     // Menu
     $configMenu = '
         <div class=sidebar role=navigation id="admmenu">
             <div class="sidebar-nav navbar-collapse">
                 <ul class=nav id=side-menu>
-                    <li class="nav-heading "> <span>Main Navigation</span></li>
+                    <li class="nav-heading d-none"> <span>Main Navigation</span></li>
                     <li class=active><a href=dashboard.php class=material-ripple><i class=material-icons>home</i> Dashboard</a></li>
 
-                    <li class="nav-heading "> <span>Oven</span></li>
+                    <li class="nav-heading "> <span>Air Purifiers</span></li>
                     <li><a href="ovenlist.php" class=material-ripple><i class=material-icons>assignment</i> Air Purifier List</a></li>
                     <li><a href="ovenadd.php" class=material-ripple><i class=material-icons>assignment</i> Air Purifier Add</a></li>
 
@@ -161,11 +163,46 @@
                     <li class="nav-heading "> <span>Main Navigation</span></li>
                     <li class=active><a href=dashboard.php class=material-ripple><i class=material-icons>home</i> Dashboard</a></li>
 
-                    <li class="nav-heading "> <span>Oven</span></li>
+                    <li class="nav-heading "> <span>Air Purifiers</span></li>
                     <li><a href="ovenlist.php" class=material-ripple><i class=material-icons>assignment</i> Air Purifier List</a></li>
 
                     <li class="nav-heading "> <span>User</span></li>
                     <li><a href="#" class=material-ripple id="uLogout"><i class=material-icons>keyboard_backspace</i> Logout</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class=control-sidebar-bg></div>
+    ';
+    */
+
+
+    // Menu
+    $configMenu = '
+        <div class=sidebar role=navigation id="admmenu" style="background-color: white;">
+            <div class="sidebar-nav navbar-collapse">
+                <div style="color: black; margin-bottom: 20px; margin-top: 70px; font-size: 30px; margin-left: 10px;"><i class=material-icons style="vertical-align: middle;">person</i> <span style="vertical-align: middle;">Admin</span></div>
+                <ul class=nav id=side-menu>
+                    <li><a href=ovenview.php?id=1&l=1 class=material-ripple><i class=material-icons style="color: black;">home</i> Homepage</a></li>
+                    <li><a href=auserlist.php class=material-ripple><i class=material-icons style="color: black;">account_box</i> Account List</a></li>
+                    <li><a href=ovenview.php?id=1&l=2 class=material-ripple><i class=material-icons style="color: black;">clear_all</i> Air Status</a></li>
+                    <li><a href=ovenview.php?id=1&l=4 class=material-ripple><i class=material-icons style="color: black;">blur_linear</i> Spray Control</a></li>
+                    <li><a href="#" class=material-ripple id="uLogout"><i class=material-icons style="color: black;">keyboard_backspace</i> Logout</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class=control-sidebar-bg></div>
+    ';
+
+    // Menu2
+    $configMenu2 = '
+        <div class=sidebar role=navigation id="opmenu" style="background-color: white;">
+            <div class="sidebar-nav navbar-collapse">
+                <div style="color: black; margin-bottom: 20px; margin-top: 70px; font-size: 30px; margin-left: 10px;"><i class=material-icons style="vertical-align: middle;">person</i> <span style="vertical-align: middle;">User</span></div>
+                <ul class=nav id=side-menu>
+                    <li><a href=ovenview.php?id=1&l=1 class=material-ripple><i class=material-icons style="color: black;">home</i> Homepage</a></li>
+                    <li><a href=ovenview.php?id=1&l=2 class=material-ripple><i class=material-icons style="color: black;">clear_all</i> Air Status</a></li>
+                    <li><a href=ovenview.php?id=1&l=4 class=material-ripple><i class=material-icons style="color: black;">blur_linear</i> Spray Control</a></li>
+                    <li><a href="#" class=material-ripple id="uLogout"><i class=material-icons style="color: black;">keyboard_backspace</i> Logout</a></li>
                 </ul>
             </div>
         </div>
